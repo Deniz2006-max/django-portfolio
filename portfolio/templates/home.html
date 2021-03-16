@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>
+    Hello, my name is Deniz
+</h4>
+{% load static %}
+<a href="http://127.0.0.1:8000/blog/"><img src="{% static 'portfolio/max_planck (1).jpg' %}"></a>
+<a href="{% static 'portfolio/phsics.pdf'%}">physics</a>
+<a href="http://127.0.0.1:8000/blog/">Blog</a>
+
+{% for project in projects %}
+<h2>{{ project.title }}</h2>
+<p>{{ project.description }}</p>
+<img src="{{ project.image.url }}">
+
+{% if project.url %}
+<a>Link</a>
+<a href="{{project.url}}"></a>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
